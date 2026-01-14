@@ -13,17 +13,23 @@ const mockData = {
 };
 
 export default function Page() {
-  const { id, title, subTitle, description, author, publisher, coverImgUrl } =
+  const { title, subTitle, description, author, publisher, coverImgUrl } =
     mockData;
 
   return (
-    <div>
+    <div className={style.container}>
       <div
         className={style.cover_img_container}
         style={{ backgroundImage: `url('${coverImgUrl}')` }}
       >
         <img src={coverImgUrl} />
       </div>
+      <div className={style.title}>{title}</div>
+      <div className={style.subTitle}>{subTitle}</div>
+      <div className={style.author}>
+        {author} | {publisher}
+      </div>
+      <div className={style.descrption}>{description}</div>
     </div>
   );
 }
