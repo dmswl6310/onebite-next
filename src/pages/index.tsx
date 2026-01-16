@@ -21,6 +21,7 @@ export const getStaticProps = async () => {
       allBooks,
       recoBooks,
     },
+    revalidate: 3,
   };
 };
 
@@ -33,13 +34,13 @@ export default function Home({
     <div className={style.container}>
       <section>
         <h3>지금 추천하는 도서</h3>
-        {allBooks.map((book) => (
+        {recoBooks.map((book) => (
           <BookItem key={book.id} {...book} />
         ))}
       </section>
       <section>
         <h3>등록된 모든 도서</h3>
-        {recoBooks.map((book) => (
+        {allBooks.map((book) => (
           <BookItem key={book.id} {...book} />
         ))}
       </section>
