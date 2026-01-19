@@ -9,6 +9,8 @@ export default function Searchbar() {
   const searchParams = useSearchParams();
   const [search, setSearch] = useState("");
 
+  // Page router : router.query.q
+  // App router : router에 query 속성 없음 => 훅 이용
   const q = searchParams.get("q");
 
   useEffect(() => {
@@ -32,11 +34,7 @@ export default function Searchbar() {
 
   return (
     <div className={style.container}>
-      <input
-        value={search}
-        onChange={onChangeSearch}
-        onKeyDown={onKeyDown}
-      />
+      <input value={search} onChange={onChangeSearch} onKeyDown={onKeyDown} />
       <button onClick={onSubmit}>검색</button>
     </div>
   );
